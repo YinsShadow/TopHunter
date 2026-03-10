@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Flash : MonoBehaviour
 {
-    [SerializeField] private Material damageFlashMat;
+    [SerializeField] private Material whiteFlashMat;
     [SerializeField] private float restoreDefaultMatTime = .2f;
 
     private Material defaultMat;
     private SpriteRenderer spriteRenderer;
-
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,8 +19,8 @@ public class Flash : MonoBehaviour
         return restoreDefaultMatTime;
     }
 
-    public IEnumerator FlashRoutine() { //Oooh pretty particle spawn
-        spriteRenderer.material = damageFlashMat;
+    public IEnumerator FlashRoutine() {
+        spriteRenderer.material = whiteFlashMat;
         yield return new WaitForSeconds(restoreDefaultMatTime);
         spriteRenderer.material = defaultMat;
     }

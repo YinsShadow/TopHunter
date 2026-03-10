@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
+    
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -18,14 +20,12 @@ public class PlayerController : Singleton<PlayerController>
     private Knockback knockback;
     private float startingMoveSpeed;
 
-
     private bool facingLeft = false;
     private bool isDashing = false;
 
-
-    protected override void Awake() { //Go!
+    protected override void Awake() {
         base.Awake();
-        
+
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
@@ -37,35 +37,45 @@ public class PlayerController : Singleton<PlayerController>
         playerControls.Combat.Dash.performed += _ => Dash();
 
         startingMoveSpeed = moveSpeed;
+
+        ActiveInventory.Instance.EquipStartingWeapon();
     }
 
-    private void OnEnable() { // Enable input
+    private void OnEnable() {
         playerControls.Enable();
     }
 
-    private void Update() { //Check for player input
+    private void OnDisable() {
+        playerControls.Disable();
+    }
+
+    private void Update() {
         PlayerInput();
     }
 
-    private void FixedUpdate() { //Do the things the player said to do!
+    private void FixedUpdate() {
         AdjustPlayerFacingDirection();
         Move();
     }
 
-    private void PlayerInput() { //Where they goin?
+    public Transform GetWeaponCollider() {
+        return weaponCollider;
+    }
+
+    private void PlayerInput() {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
         myAnimator.SetFloat("moveX", movement.x);
         myAnimator.SetFloat("moveY", movement.y);
     }
 
-    private void Move() { // Moves the player!
-        if (knockback.GettingKnockedBack) { return; }
+    private void Move() {
+        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
 
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
-    private void AdjustPlayerFacingDirection() { //Change direction based on mouse position! (If needed)
+    private void AdjustPlayerFacingDirection() {
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
@@ -78,8 +88,9 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    private void Dash() { // Is as described!
-        if (!isDashing) {
+    private void Dash() {
+        if (!isDashing && Stamina.Instance.CurrentStamina > 0) {
+            Stamina.Instance.UseStamina();
             isDashing = true;
             moveSpeed *= dashSpeed;
             myTrailRenderer.emitting = true;
@@ -87,7 +98,7 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    private IEnumerator EndDashRoutine() { // Stop doing the thing!
+    private IEnumerator EndDashRoutine() {
         float dashTime = .2f;
         float dashCD = .25f;
         yield return new WaitForSeconds(dashTime);
@@ -95,5 +106,5 @@ public class PlayerController : Singleton<PlayerController>
         myTrailRenderer.emitting = false;
         yield return new WaitForSeconds(dashCD);
         isDashing = false;
-    } 
+    }
 }
