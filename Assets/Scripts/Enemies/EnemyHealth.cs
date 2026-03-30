@@ -17,27 +17,27 @@ public class EnemyHealth : MonoBehaviour
         knockback = GetComponent<Knockback>();
     }
 
-    private void Start() { // Set... Go!
+    private void Start() {
         currentHealth = startingHealth;
     }
 
-    public void TakeDamage(int damage) { //Ouch!
+    public void TakeDamage(int damage) {
         currentHealth -= damage;
         knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
-        //Debug.Log(currentHealth);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }
 
-    private IEnumerator CheckDetectDeathRoutine() { // Check for death
+    private IEnumerator CheckDetectDeathRoutine() {
         yield return new WaitForSeconds(flash.GetRestoreMatTime());
         DetectDeath();
     }
 
-    public void DetectDeath() { //Ded yet?
+    public void DetectDeath() {
         if (currentHealth <= 0) {
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+            GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
         }
-    }    
+    }
 }

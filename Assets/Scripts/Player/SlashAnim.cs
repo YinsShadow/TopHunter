@@ -11,12 +11,12 @@ public class SlashAnim : MonoBehaviour
     }
 
     private void Update() {
-        if (ps && !ps.IsAlive()) { //Clean up  particles after death!
+        if (ps && !ps.IsAlive()) {
             DestroySelf();
         }
     }
-    
-    public void DestroySelf() { //Delete thyself
+
+    public void DestroySelf() {
         Destroy(gameObject);
     }
 }

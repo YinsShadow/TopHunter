@@ -1,36 +1,9 @@
 fileFormatVersion: 2
-guid: 72e13d40868e0994f8deaff34f96e667
+guid: 16d455c02fed9c04c97fa39aca731ae1
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7229220149124856631
-    second: Slash Effect_0
-  - first:
-      213: 8806561744824432989
-    second: Slash Effect_1
-  - first:
-      213: -6246675371957094910
-    second: Slash Effect_2
-  - first:
-      213: 5989712527177951153
-    second: Slash Effect_3
-  - first:
-      213: 5379926381550770200
-    second: Slash Effect_4
-  - first:
-      213: -4186273098142486107
-    second: Slash Effect_5
-  - first:
-      213: -6598097557103341705
-    second: Slash Effect_6
-  - first:
-      213: 4475434940280343158
-    second: Slash Effect_7
-  - first:
-      213: 3335157376098573144
-    second: Slash Effect_8
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -94,7 +67,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -107,8 +80,60 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -134,13 +159,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9c401509396acab90800000000000000
-      internalID: -7229220149124856631
+      spriteID: b90a89046cfb78944ad05caff51e96a2
+      internalID: 2127131826
       vertices: []
       indices: 
       edges: []
@@ -156,13 +180,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d59fdcc6f31373a70800000000000000
-      internalID: 8806561744824432989
+      spriteID: b9a07233ca5dc9d40812cc2821ea0d2d
+      internalID: 1893080825
       vertices: []
       indices: 
       edges: []
@@ -178,13 +201,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 206f05378d95f49a0800000000000000
-      internalID: -6246675371957094910
+      spriteID: 9cc93e685dd27eb4098ea2d9eef11771
+      internalID: -433194914
       vertices: []
       indices: 
       edges: []
@@ -200,13 +222,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1b726210fcbbf1350800000000000000
-      internalID: 5989712527177951153
+      spriteID: 2692766a19e36f040a94adebfef333e1
+      internalID: 1089845100
       vertices: []
       indices: 
       edges: []
@@ -222,13 +243,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 818161a3a8659aa40800000000000000
-      internalID: 5379926381550770200
+      spriteID: 152511437da46a249a107b2f8a3547e9
+      internalID: -1512700857
       vertices: []
       indices: 
       edges: []
@@ -244,13 +264,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5a1717c0cce57e5c0800000000000000
-      internalID: -4186273098142486107
+      spriteID: a4365f29dac5b824781c802762d9d547
+      internalID: -689289358
       vertices: []
       indices: 
       edges: []
@@ -266,13 +285,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 77f8b73ea39de64a0800000000000000
-      internalID: -6598097557103341705
+      spriteID: 74ed81903580a5f4399c730e3e4519f7
+      internalID: -85544548
       vertices: []
       indices: 
       edges: []
@@ -288,13 +306,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 67a08c6cd50fb1e30800000000000000
-      internalID: 4475434940280343158
+      spriteID: d1804ba976999004882ce0959af28375
+      internalID: 235022239
       vertices: []
       indices: 
       edges: []
@@ -310,40 +327,36 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 85b116096fbd84e20800000000000000
-      internalID: 3335157376098573144
+      spriteID: 4d6f924c4d9fb2d47948c7992425593e
+      internalID: 183411545
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
-    customData: 
     physicsShape: []
     bones: []
-    spriteID: 304bac06522a43d4f9b3825272f2aa0f
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    spriteCustomMetadata:
-      entries: []
     nameFileIdTable:
-      Slash Effect_0: -7229220149124856631
-      Slash Effect_1: 8806561744824432989
-      Slash Effect_2: -6246675371957094910
-      Slash Effect_3: 5989712527177951153
-      Slash Effect_4: 5379926381550770200
-      Slash Effect_5: -4186273098142486107
-      Slash Effect_6: -6598097557103341705
-      Slash Effect_7: 4475434940280343158
-      Slash Effect_8: 3335157376098573144
+      Slash Effect_0: 2127131826
+      Slash Effect_1: 1893080825
+      Slash Effect_2: -433194914
+      Slash Effect_3: 1089845100
+      Slash Effect_4: -1512700857
+      Slash Effect_5: -689289358
+      Slash Effect_6: -85544548
+      Slash Effect_7: 235022239
+      Slash Effect_8: 183411545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
