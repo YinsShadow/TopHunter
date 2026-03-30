@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour
     public static LevelGenerator Instance;
 
     public GameObject[] roomPrefabs;
+    public GameObject startRoom;
     public Transform roomSpawnPoint;
 
     private int currentRoomIndex = -1;
@@ -26,9 +27,15 @@ public class LevelGenerator : MonoBehaviour
 
     void GenerateLevel()
     {
+        generatedRooms.Clear();
+
         int roomCount = Random.Range(3, 6);
 
-        for (int i = 0; i < roomCount; i++)
+        // First room is start room
+        generatedRooms.Add(startRoom);
+
+        // Generate rest randomly
+        for (int i = 1; i < roomCount; i++)
         {
             GameObject room = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
             generatedRooms.Add(room);

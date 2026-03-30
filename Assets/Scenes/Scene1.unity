@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 8567324871102423618, guid: a94d978a63b081d478a3a378edfde181, type: 3}
   - {fileID: 6748225902525963717, guid: 88bf0aef005af3545a6b228f1ea044f7, type: 3}
+  startRoom: {fileID: 8567324871102423618, guid: a94d978a63b081d478a3a378edfde181, type: 3}
   roomSpawnPoint: {fileID: 783805230}
 --- !u!4 &27974871
 Transform:
@@ -364,9 +364,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2766464952499854566, guid: 88bf0aef005af3545a6b228f1ea044f7, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6748225902525963717, guid: 88bf0aef005af3545a6b228f1ea044f7, type: 3}
       propertyPath: m_Name
       value: Room_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748225902525963717, guid: 88bf0aef005af3545a6b228f1ea044f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1209,6 +1217,10 @@ PrefabInstance:
     - target: {fileID: 4533794169670593264, guid: 7618263d348671f43933f6743578180d, type: 3}
       propertyPath: m_ChildCameras.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931863193965687631, guid: 7618263d348671f43933f6743578180d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.7999973
       objectReference: {fileID: 0}
     - target: {fileID: 7391624065722442403, guid: 7618263d348671f43933f6743578180d, type: 3}
       propertyPath: m_Follow
