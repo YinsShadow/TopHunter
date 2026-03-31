@@ -37,4 +37,14 @@ public class UIFade : Singleton<UIFade>
             yield return null;
         }
     }
+
+        public IEnumerator FadeToBlackCoroutine()
+    {
+        yield return StartCoroutine(FadeRoutine(1));
+    }
+
+    public IEnumerator FadeToClearCoroutine()
+    {
+        yield return StartCoroutine(FadeRoutine(0));
+    }
 }

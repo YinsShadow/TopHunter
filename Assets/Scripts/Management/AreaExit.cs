@@ -5,26 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class AreaExit : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad;
-    [SerializeField] private string sceneTransitionName;
+    private bool isTriggered = false;
 
-    private float waitToLoadTime = 1f;
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (isTriggered) return;
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.GetComponent<PlayerController>()) {
-            SceneManagement.Instance.SetTransitionName(sceneTransitionName);
-            UIFade.Instance.FadeToBlack();
-            StartCoroutine(LoadSceneRoutine());
+        if (other.GetComponent<PlayerController>()) 
+        {
+            isTriggered = true;
+            StartCoroutine(TransitionRoutine());
         }
     }
 
-    private IEnumerator LoadSceneRoutine() {
-        while (waitToLoadTime >= 0) 
-        {
-            waitToLoadTime -= Time.deltaTime;
-            yield return null;
-        }
+    private IEnumerator TransitionRoutine()
+    {
+        // Wait for fade to black to finish
+        yield return StartCoroutine(UIFade.Instance.FadeToBlackCoroutine());
 
-        SceneManager.LoadScene(sceneToLoad);
+        // Spawn next room
+        LevelGenerator.Instance.LoadNextRoom();
+
+        // Wait a tiny bit to ensure room is ready
+        yield return null;
+
+        // Fade back in
+        yield return StartCoroutine(UIFade.Instance.FadeToClearCoroutine());
     }
 }
