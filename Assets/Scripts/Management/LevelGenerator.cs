@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
 
     public GameObject[] roomPrefabs;
     public GameObject startRoom;
+    public GameObject endRoom;
     public Transform roomSpawnPoint;
 
     private int currentRoomIndex = -1;
@@ -25,21 +26,39 @@ public class LevelGenerator : MonoBehaviour
         LoadNextRoom();
     }
 
+    void ShuffleList(List<GameObject> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
+
     void GenerateLevel()
     {
         generatedRooms.Clear();
 
-        int roomCount = Random.Range(3, 6);
+        int roomCount = Random.Range(2, 4);
 
-        // First room is start room
+        // de first room is start room
         generatedRooms.Add(startRoom);
 
-        // Generate rest randomly
-        for (int i = 1; i < roomCount; i++)
+        // makin a temporary pool, don’t modify the original array!
+        List<GameObject> roomPool = new List<GameObject>(roomPrefabs);
+
+        // Shuffle the pool (no order allowed!)
+        ShuffleList(roomPool);
+
+        // Add unique rooms (no repeats)
+        for (int i = 0; i < roomCount - 1; i++)
         {
-            GameObject room = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
-            generatedRooms.Add(room);
+            generatedRooms.Add(roomPool[i]);
         }
+
+        generatedRooms.Add(endRoom);
     }
 
     public void LoadNextRoom()
