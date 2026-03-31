@@ -41,7 +41,7 @@ public class LevelGenerator : MonoBehaviour
     {
         generatedRooms.Clear();
 
-        int roomCount = roomPrefabs.Length;//Random.Range(2, 4);
+        int roomCount = roomPrefabs.Length;//Random.Range(2, 4); (intended) OR roomPrefabs.Length; (testing)
 
         // de first room is start room
         generatedRooms.Add(startRoom);
