@@ -19,7 +19,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Flash flash;
 
     const string HEALTH_SLIDER_TEXT = "Health Slider";
-    const string TOWN_TEXT = "Scene1";
+    const string Menu_Scene = "MainMenu";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake() {
@@ -77,7 +77,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private IEnumerator DeathLoadSceneRoutine() {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        SceneManager.LoadScene(TOWN_TEXT);
+        SceneManager.LoadScene(Menu_Scene);
+        Destroy(GameObject.Find("UICanvas"));
     }
 
     private IEnumerator DamageRecoveryRoutine() {
