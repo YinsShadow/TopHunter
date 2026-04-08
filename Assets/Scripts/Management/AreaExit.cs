@@ -32,7 +32,7 @@ public class AreaExit : MonoBehaviour
         return enemiesParent == null || enemiesParent.childCount == 0;
     }
 
-    // Dev/Test mode
+    // Dev/Test mode (Don't have to kill to move on)
     // private void OnTriggerEnter2D(Collider2D other) 
     // {
     //     if (isTriggered) return;

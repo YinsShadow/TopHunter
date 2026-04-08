@@ -24186,18 +24186,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.012350551, y: -0.08307643}
   m_Size: {x: 1.3854611, y: 0.8814446}
   m_Direction: 1
---- !u!114 &6422600796359419021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8159013846447879031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa6e47d4a1ff3264e9d1f0452b8c9b76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6449130616444225782
 Transform:
   m_ObjectHideFlags: 0
@@ -25181,7 +25169,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3011950468878644727}
   - component: {fileID: 7929975023912796539}
-  - component: {fileID: 6422600796359419021}
   m_Layer: 0
   m_Name: AreaExit
   m_TagString: Untagged
