@@ -5,15 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
+    public void StartGameNormal()
     {
-        SceneManager.LoadScene("Game"); // game scene name to load
+        Debug.Log("Go Normal!"); 
+
+        SceneManager.LoadScene("GameNormal"); 
+    }
+
+    public void StartGameAI()
+    {
+        Debug.Log("Go AI!"); 
+
+        SceneManager.LoadScene("GameAI"); 
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit Game"); // works for in editor mode
+        Debug.Log("Quit Game"); 
 
-        Application.Quit(); // works when build done
+        Application.Quit(); 
     }
 }
