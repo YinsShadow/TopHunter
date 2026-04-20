@@ -19161,7 +19161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da118c9c140def84699198de7a8b7659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpawnPoint: {fileID: 0}
+  playerSpawnPoint: {fileID: 7331022566540922912}
   enemiesParent: {fileID: 1790323921448518931}
   enemyPrefabs:
   - {fileID: 5232450499796952066, guid: a89df588516f2344fabfd5441c3a2084, type: 3}

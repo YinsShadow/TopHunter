@@ -15,7 +15,7 @@ public class AILevelGenerator : MonoBehaviour
     private List<GameObject> generatedRooms = new List<GameObject>();
     private GameObject currentRoom;
     private float difficulty = 1f;
-    private float playerPerformance = 0f;
+    private float playerPerformance = 2f;
 
     private void Awake()
     {
@@ -102,6 +102,9 @@ public class AILevelGenerator : MonoBehaviour
 
         AIRoom roomScript = currentRoom.GetComponent<AIRoom>();
 
+        //Debug.Log("Player: " + PlayerController.Instance);
+        //Debug.Log("Room Script: " + roomScript);
+        //Debug.Log("Spawn Point: " + roomScript.playerSpawnPoint); //This was to find a missing value assignment (it was a wrong script)
         // Move player
         PlayerController.Instance.transform.position = roomScript.playerSpawnPoint.position;
 

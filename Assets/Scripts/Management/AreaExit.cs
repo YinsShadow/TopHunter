@@ -48,13 +48,26 @@ public class AreaExit : MonoBehaviour
     //     }
     // }
     //
+
+    private void LoadNext()
+    {
+        if (AILevelGenerator.Instance != null)
+        {
+            AILevelGenerator.Instance.LoadNextRoom();
+        }
+        else if (LevelGenerator.Instance != null)
+        {
+            LevelGenerator.Instance.LoadNextRoom();
+        }
+    }
     private IEnumerator TransitionRoutine()
     {
         // Wait for fade to black to finish
         yield return StartCoroutine(UIFade.Instance.FadeToBlackCoroutine());
 
         // Spawn next room
-        LevelGenerator.Instance.LoadNextRoom();
+        //LevelGenerator.Instance.LoadNextRoom(); //old
+        LoadNext();
 
         // Wait a tiny bit to ensure room is ready
         yield return null;
