@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AreaExit : MonoBehaviour
 {
+    //public Transform enemiesParent;
+
     private bool isTriggered = false;
 
     // As I intended for the game 
@@ -22,6 +24,8 @@ public class AreaExit : MonoBehaviour
 
         if (other.GetComponent<PlayerController>() && AreAllEnemiesDead()) 
         {
+            AILevelGenerator.Instance.OnRoomCompleted(5f, 1);
+
             isTriggered = true;
             StartCoroutine(TransitionRoutine());
         }

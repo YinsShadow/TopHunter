@@ -14,6 +14,8 @@ public class AILevelGenerator : MonoBehaviour
     private int currentRoomIndex = -1;
     private List<GameObject> generatedRooms = new List<GameObject>();
     private GameObject currentRoom;
+    private float difficulty = 1f;
+    private float playerPerformance = 0f;
 
     private void Awake()
     {
@@ -61,6 +63,28 @@ public class AILevelGenerator : MonoBehaviour
         generatedRooms.Add(endRoom);
     }
 
+    void AdjustDifficulty()
+    {
+        if (playerPerformance > 2f)
+            difficulty += 0.2f;
+        else if (playerPerformance < -2f)
+            difficulty -= 0.2f;
+
+        difficulty = Mathf.Clamp(difficulty, 0.5f, 2f);
+    }
+
+    public void OnRoomCompleted(float timeTaken, int damageTaken)
+    {
+        float score = 0f;
+
+        score += (10f - timeTaken);
+        score -= damageTaken;
+
+        playerPerformance = score;
+
+        AdjustDifficulty();
+    }
+
     public void LoadNextRoom()
     {
         if (currentRoom != null)
@@ -76,10 +100,14 @@ public class AILevelGenerator : MonoBehaviour
 
         currentRoom = Instantiate(generatedRooms[currentRoomIndex], roomSpawnPoint.position, Quaternion.identity);
 
-        Room roomScript = currentRoom.GetComponent<Room>();
+        AIRoom roomScript = currentRoom.GetComponent<AIRoom>();
 
         // Move player
         PlayerController.Instance.transform.position = roomScript.playerSpawnPoint.position;
+
+        // Apply AI difficulty + spawn enemies
+        roomScript.SetDifficulty(difficulty);
+        roomScript.GenerateContents();
 
         UIFade.Instance.FadeToClear();
     }
