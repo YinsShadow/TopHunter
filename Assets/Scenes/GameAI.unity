@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 772882484}
+  - {fileID: 7251572090252253074, guid: 121ba1eb261fb0c4ab970d629b9bf27e, type: 3}
   - {fileID: 3615736670363446330, guid: c59a6fac4554ab24d95b89df2f4cbcdf, type: 3}
   - {fileID: 4049101097365124025, guid: 5dbc71452cde3f843b449916d69c3583, type: 3}
   - {fileID: 463797840615769951, guid: aa6d2a1632928b94d8132b7bf15d5e8b, type: 3}
@@ -567,11 +567,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121ba1eb261fb0c4ab970d629b9bf27e, type: 3}
---- !u!1 &772882484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7251572090252253074, guid: 121ba1eb261fb0c4ab970d629b9bf27e, type: 3}
-  m_PrefabInstance: {fileID: 772882483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &783805229
 GameObject:
   m_ObjectHideFlags: 0
