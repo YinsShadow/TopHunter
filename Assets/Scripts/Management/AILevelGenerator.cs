@@ -15,7 +15,7 @@ public class AILevelGenerator : MonoBehaviour
     private List<GameObject> generatedRooms = new List<GameObject>();
     private GameObject currentRoom;
     private float difficulty = 1f;
-    private float playerPerformance = 2f;
+    // private float playerPerformance = 2f; old attempt
 
     private void Awake()
     {
@@ -63,26 +63,46 @@ public class AILevelGenerator : MonoBehaviour
         generatedRooms.Add(endRoom);
     }
 
-    void AdjustDifficulty()
+    // void AdjustDifficulty() // difficulty scaling testing
+    // {
+    //     if (playerPerformance > 2f)
+    //         difficulty += 0.2f;
+    //     else if (playerPerformance < -2f)
+    //         difficulty -= 0.2f;
+
+    //     difficulty = Mathf.Clamp(difficulty, 0.5f, 2f);
+    // }
+
+    // public void OnRoomCompleted(float timeTaken, int damageTaken)
+    // {
+    //     float score = 0f;
+
+    //     score += (10f - timeTaken);
+    //     score -= damageTaken;
+
+    //     playerPerformance = score;
+
+    //     AdjustDifficulty();
+    // }
+
+    public void OnRoomCompleted(int hitsTaken)
     {
-        if (playerPerformance > 2f)
-            difficulty += 0.2f;
-        else if (playerPerformance < -2f)
-            difficulty -= 0.2f;
+        if (hitsTaken == 0)
+        {
+            difficulty += 0.2f; // player did good = make harder
+        }
+        else if (hitsTaken == 1)
+        {
+            // no change
+        }
+        else
+        {
+            difficulty -= 0.2f; // player struggled = make easier
+        }
 
         difficulty = Mathf.Clamp(difficulty, 0.5f, 2f);
-    }
 
-    public void OnRoomCompleted(float timeTaken, int damageTaken)
-    {
-        float score = 0f;
-
-        score += (10f - timeTaken);
-        score -= damageTaken;
-
-        playerPerformance = score;
-
-        AdjustDifficulty();
+        Debug.Log("Hits: " + hitsTaken + " | Difficulty: " + difficulty);
     }
 
     public void LoadNextRoom()

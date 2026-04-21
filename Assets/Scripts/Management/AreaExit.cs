@@ -24,7 +24,14 @@ public class AreaExit : MonoBehaviour
 
         if (other.GetComponent<PlayerController>() && AreAllEnemiesDead()) 
         {
-            AILevelGenerator.Instance.OnRoomCompleted(5f, 1);
+            //AILevelGenerator.Instance.OnRoomCompleted(5f, 1); // old
+
+            int hits = PlayerHealth.Instance.GetHitsTaken();
+
+            AILevelGenerator.Instance.OnRoomCompleted(hits);
+
+            // reset for next room
+            PlayerHealth.Instance.ResetHits();
 
             isTriggered = true;
             StartCoroutine(TransitionRoutine());

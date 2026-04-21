@@ -14,6 +14,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private Slider healthSlider;
     private int currentHealth;
+    private int hitsTakenThisRoom = 0;
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
@@ -54,6 +55,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public void TakeDamage(int damageAmount, Transform hitTransform) {
         if (!canTakeDamage) { return; }
 
+        hitsTakenThisRoom++;
+
         ScreenShakeManager.Instance.ShakeScreen();
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
@@ -62,6 +65,16 @@ public class PlayerHealth : Singleton<PlayerHealth>
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();
         CheckIfPlayerDeath();
+    }
+
+    public int GetHitsTaken()
+    {
+        return hitsTakenThisRoom;
+    }
+
+    public void ResetHits()
+    {
+        hitsTakenThisRoom = 0;
     }
 
     private void CheckIfPlayerDeath() {

@@ -11,7 +11,7 @@ public class AIRoom : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public Transform[] enemySpawnPoints;
 
-    private float difficulty = 0.5f;
+    private float difficulty = 0.8f;
 
     // Called in AILevelGenerator
     public void SetDifficulty(float value)
@@ -35,10 +35,10 @@ public class AIRoom : MonoBehaviour
         }
         else
         {
-            enemyCount = Random.Range(4, 5); // hard ( capped )
+            enemyCount = Random.Range(4, 6); // hard ( capped due to spawn zone limits )
         }
 
-        enemyCount = Mathf.Clamp(enemyCount, 1, 5);
+        enemyCount = Mathf.Clamp(enemyCount, 1, 5); //max and min spawns per room
 
         for (int i = 0; i < enemyCount && availableSpawns.Count > 0; i++)
         {
@@ -47,7 +47,24 @@ public class AIRoom : MonoBehaviour
             Transform spawnPoint = availableSpawns[index];
             availableSpawns.RemoveAt(index);
 
-            GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            int maxIndex;
+
+            if (difficulty <= 0.8f)
+            {
+                maxIndex = 0; // easy enemy only
+            }
+            else if (difficulty <= 1.3f)
+            {
+                maxIndex = 1; // easy enemy + normal enemy
+            }
+            else
+            {
+                maxIndex = 2; // easy enemy + normal enemy + hard enemy
+            }
+
+            GameObject enemy = enemyPrefabs[Random.Range(0, maxIndex + 1)];
+
+            //GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]; //random enemy spawn
 
             Instantiate(enemy, spawnPoint.position, Quaternion.identity, enemiesParent);
         }
