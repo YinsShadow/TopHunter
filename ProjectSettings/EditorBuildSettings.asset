@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameAI.unity
     guid: 47d8268d3968a8146892f9d1c86adc6f
   - enabled: 0
+    path: Assets/Scenes/DemoVidEnd.unity
+    guid: ea4ec1e511a2028468e68444e44f278c
+  - enabled: 0
     path: Assets/Scenes/TestZone.unity
     guid: 2e968716c58bd6743aec4710767d4ec0
   m_configObjects: {}
