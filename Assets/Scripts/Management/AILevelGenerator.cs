@@ -45,7 +45,7 @@ public class AILevelGenerator : MonoBehaviour
 
         int roomCount = Random.Range(5, 7);
 
-        // de first room is start room
+        // de first room is always the start room
         generatedRooms.Add(startRoom);
 
         // makin a temporary pool, don’t modify the original array!
@@ -59,7 +59,7 @@ public class AILevelGenerator : MonoBehaviour
         {
             generatedRooms.Add(roomPool[i]);
         }
-
+        // de last  room is always the end room
         generatedRooms.Add(endRoom);
     }
 
@@ -125,7 +125,7 @@ public class AILevelGenerator : MonoBehaviour
         //Debug.Log("Player: " + PlayerController.Instance);
         //Debug.Log("Room Script: " + roomScript);
         //Debug.Log("Spawn Point: " + roomScript.playerSpawnPoint); //This was to find a missing value assignment (it was a wrong script)
-        // Move player
+        // Move player to room spawn
         PlayerController.Instance.transform.position = roomScript.playerSpawnPoint.position;
 
         // Apply AI difficulty + spawn enemies
